@@ -12,7 +12,7 @@ function templateCache(root, base) {
 
 	return es.map(function(file, cb) {
 		var template = '$templateCache.put("<%= url %>","<%= contents %>");';
-		var url = path.join(root, file.path.replace(base || file.base, ''));
+		var url = path.join(root, file.path.replace(base || file.cwd + '/' + file.base, ''));
 
 		if (process.platform === 'win32') {
 			url = url.replace(/\\/g, '/');
